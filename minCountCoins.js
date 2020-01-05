@@ -1,28 +1,8 @@
 // 贪心
 function minCountCoins(coins, amount) {
-  let checksCount = 0;
-  let balance = amount;
-  let tryNumArr = [];
-  coins.forEach((coin,index) => {
-    tryNumArr[index] = Math.floor(amount / coin);
-  });
-  console.log(coins,tryNumArr);
-  function x(totalCountArr, totalCount, totalNum, index) {
-    for(let i=0; i<=tryNumArr[index]; i++) {
-      
-      if(index=== tryNumArr.length-1) {
-        console.log('totalCountArr>>',totalCountArr);
-        if(totalNum + coins[index] === amount) console.log(totalCount+i);
-        return;
-      }
+  // //
 
-      totalCountArr.push(i);
-      x( totalCountArr, totalCount+i, totalNum + i*coins[index], index+1);
-    }
-  }
-  x([],0,0,0);
-
-  return checksCount;
+  // return checksCount;
 };
 
 // DP
@@ -38,7 +18,7 @@ function minCounCoinsDP(coins, amount) {
   for(let i=0; i <= amount; i++) {
     sub = -1;
     tempSub = -1;
-    
+
     coins.forEach(coin => {
       if(coin > i) tempSub = -1;
       else if(coin === i) tempSub = 1;
